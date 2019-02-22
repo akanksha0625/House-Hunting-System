@@ -1,0 +1,9 @@
+<h4>Please fill up the below form to sign up as a new user</h4>
+<div class="login">
+   <div class="container">
+     <div class="form">
+       <%= render 'form', user: @user, form_for: :signup %>
+       <button><%= link_to 'Back', current_user %></button>
+     </div>
+   </div>
+</div>

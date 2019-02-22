@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Replies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Responses</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @replies.each do |reply| %>
+      <tr>
+        <td><%= reply.body %></td>
+        <td><%= link_to 'Show', reply %></td>
+        <%if current_user && (current_user.role == "Realtor" || current_user.role == "Admin") %>
+        <td><%= link_to 'Edit', edit_reply_path(reply) %></td>
+        <td><%= link_to 'Destroy', reply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<button><%= link_to 'Home', current_user %></button>
+<button><%= link_to 'Back', inquiries_path %></button>

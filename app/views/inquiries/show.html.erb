@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @inquiry.subject %>
+</p>
+
+<p>
+  <strong>Message content:</strong>
+  <%= @inquiry.message_content %>
+</p>
+<%if current_user && current_user.role =="HouseHunter" %>
+<%= link_to 'Edit', edit_inquiry_path(@inquiry) %>
+  <%end %>
+<button><%= link_to 'Back', inquiries_path %></button>
+<button><%= link_to 'Home', current_user %></button>

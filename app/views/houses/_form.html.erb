@@ -1,0 +1,67 @@
+<%= form_for @house, :html => {:multipart => true}  do |form| %>
+  <% if house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(house.errors.count, "error") %> prohibited this house from being saved:</h2>
+
+      <ul>
+      <% house.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :house_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :square_footage %>
+    <%= form.number_field :square_footage, id: :house_square_footage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year_built %>
+    <%= form.number_field :year_built, id: :house_year_built %>
+  </div>
+
+  <div class="field">
+    <%= form.label :style %>
+    <%= form.text_field :style, id: :house_style %>
+  </div>
+
+  <div class="field">
+    <%= form.label :list_price %>
+    <%= form.number_field :list_price, id: :house_list_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :no_of_floors %>
+    <%= form.number_field :no_of_floors, id: :house_no_of_floors %>
+  </div>
+
+  <div class="field">
+    <%= form.label :basement %>
+    <%= form.check_box :basement, id: :house_basement %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_house_owner %>
+    <%= form.text_field :current_house_owner, id: :house_current_house_owner %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_info %>
+    <%= form.text_field :contact_info, id: :house_contact_info %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :house_image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

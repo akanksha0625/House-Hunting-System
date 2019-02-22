@@ -1,0 +1,27 @@
+<%= form_tag(houses_path, method: :get) do %>
+  <div>
+    List Price Low:
+    <%= text_field_tag :listPriceLow, params[:listPriceLow] %>
+    List Price High:
+    <%= text_field_tag :listPriceHigh, params[:listPriceHigh] %>
+    (Please include both low and high values.)
+    <br><%= submit_tag 'Filter on List Price', name: nil %>
+  </div>
+  <div>
+    Square Footage Low:
+    <%= text_field_tag :squareFootageLow, params[:squareFootageLow] %>
+    Square Footage High:
+    <%= text_field_tag :squareFootageHigh, params[:squareFootageHigh]%>
+    (Please include both low and high values.)
+    <br><%= submit_tag 'Filter on List Price', name: nil %>
+  </div>
+  <div>
+    Location:
+    <%= text_field_tag :location, params[:location] %>
+  <br><%= submit_tag 'Filter on Location', name: nil %>
+  </div>
+<% end %>
+<br/>
+<br/>
+
+</section>

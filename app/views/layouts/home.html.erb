@@ -1,0 +1,25 @@
+<head>
+  <title>PropertyManagementSystem</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container-fluid">
+  <h1>Welcome to House Hunters!</h1>
+  <p> Please Login/SignUp to continue </p>
+  <div class="btn-group">
+
+    <button type="button" class="btn btn-outline-primary"><%= link_to 'Login', page: "LoginCredentials" %></button>
+    <div class="btn-group">
+      <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
+        Sign Up <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Realtor</a></li>
+        <li><a href="#">HouseHunter</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>

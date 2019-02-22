@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<% if current_user && current_user.role == "HouseHunter"%>
+<p>
+  <strong>Phone:</strong>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <strong>Contactmethod:</strong>
+  <%= @user.contactmethod %>
+</p>
+<% end %>
+
+<% if current_user && current_user.role == "Realtor"%>
+  <p>
+    <strong>Company:</strong>
+    <%= Company.all.find(@user.company_id).name %>
+  </p>
+<%end %>
+<p>
+  <strong>Role:</strong>
+  <%= @user.role %>
+</p>
+
+<button><%= link_to 'Edit', edit_user_path(@user) %></button> |
+<button><%= link_to 'Houses', houses_url %></button> |
+<% if current_user && (current_user.role == "Realtor" || current_user.role == "Admin")%>
+  <button><%= link_to 'Real Estate Companies', companies_url %></button> |
+<% end %>
+<% if current_user && current_user.role == "Admin" %>
+  <button><%= link_to 'New User', new_user_path %></button> |
+  <button><%= link_to 'List of Users', users_url %></button>
+  <button><%= link_to 'Back', users_path %></button> |
+<% end %>

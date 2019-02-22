@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @reply.body %>
+</p>
+<%if current_user && (current_user.role == "Realtor" || current_user.role == "Admin") %>
+<%= link_to 'Edit', edit_reply_path(@reply) %>
+  <%end %>
+<button><%= link_to 'Home', current_user %></button>
+<button><%= link_to 'Back', inquiries_path %></button>

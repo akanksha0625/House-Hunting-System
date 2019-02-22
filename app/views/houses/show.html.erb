@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @house.location %>
+</p>
+
+<p>
+  <strong>Square footage:</strong>
+  <%= @house.square_footage %>
+</p>
+
+<p>
+  <strong>Year built:</strong>
+  <%= @house.year_built %>
+</p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @house.style %>
+</p>
+
+<p>
+  <strong>List price:</strong>
+  <%= @house.list_price %>
+</p>
+
+<p>
+  <strong>No of floors:</strong>
+  <%= @house.no_of_floors %>
+</p>
+
+<p>
+  <strong>Basement:</strong>
+  <%= @house.basement %>
+</p>
+
+<p>
+  <strong>Current house owner:</strong>
+  <%= @house.current_house_owner %>
+</p>
+
+<p>
+  <strong>Contact info:</strong>
+  <%= @house.contact_info %>
+</p>
+
+<p>
+  <strong>Pictures:</strong>
+  <%= image_tag @house.image_url.to_s %>
+</p>
+<% if current_user.role != "HouseHunter" %>
+<p>
+  <strong>Potential buyers:</strong>
+  <%= @house.potential_buyers %>
+</p>
+<% end %>
+ <% if current_user && ((current_user.role=="Realtor" && current_user.id == @house.user_id) || current_user.role=="Admin") %>
+  <button><%= link_to 'Edit', edit_house_path(@house) %></button>
+<% end %>
+<button><%= link_to 'Back', houses_path %></button>
+
+<% if current_user.role == "HouseHunter" %>
+<button><%= link_to 'Submit an Inquiry', new_inquiry_path %></button>
+<td><button><%= link_to 'I am Interested!', House.update(@house.id, potential_buyers: current_user.name ) %></button></td>
+<% end %>
+<td><button><%= link_to 'View House Inquiries', inquiries_path %></button></td>
+<button><%= link_to 'Home', current_user %></button>
